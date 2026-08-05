@@ -1,0 +1,149 @@
+:root {
+  /* Surfaces */
+  --surface-page: #f8f9fa;
+  --surface-card: #ffffff;
+  --surface-muted: #f1f3f5;
+  --surface-hover: #eef1f4;
+
+  /* Borders & shadows */
+  --border: #e2e5e9;
+  --border-strong: #c5cbd3;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* Text */
+  --text-primary: #1a1d21;
+  --text-muted: #5c6570;
+  --text-inverse: #ffffff;
+
+  /* Accent & status */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-subtle: #eff4ff;
+  --success: #15803d;
+  --success-bg: #ecfdf3;
+  --warning: #b45309;
+  --warning-bg: #fff7ed;
+  --error: #b91c1c;
+  --error-bg: #fef2f2;
+  --review: #7c3aed;
+  --review-bg: #f5f3ff;
+
+  /* Typography */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.625rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+
+  /* Layout */
+  --radius-sm: 4px;
+  --radius: 6px;
+  --radius-md: 8px;
+  --header-h: 56px;
+  --rail-w: 220px;
+  --side-w: 340px;
+  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.28);
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 180ms;
+}
+
+[data-theme="dark"] {
+  /* Surfaces */
+  --surface-page: #0f1115;
+  --surface-card: #1a1d21;
+  --surface-muted: #22262d;
+  --surface-hover: #2a2f37;
+
+  /* Borders & shadows */
+  --border: #2e343c;
+  --border-strong: #424a54;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  /* Text */
+  --text-primary: #e8ebef;
+  --text-muted: #9098a2;
+  --text-inverse: #0f1115;
+
+  /* Accent & status */
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+  --accent-subtle: #1e293b;
+  --success: #4ade80;
+  --success-bg: #052e16;
+  --warning: #fbbf24;
+  --warning-bg: #451a03;
+  --error: #f87171;
+  --error-bg: #450a0a;
+  --review: #a78bfa;
+  --review-bg: #2e1065;
+}
+
+[data-theme="dark"] .product-table tbody tr.is-review {
+  background: #422006;
+}
+
+[data-theme="dark"] .product-table tbody tr.is-review.is-selected {
+  background: #713f12;
+}
+
+[data-theme="dark"] .pipeline-step.is-running {
+  border-color: #1e40af;
+}
+
+[data-theme="dark"] .pipeline-step.is-complete {
+  border-color: #166534;
+}
+
+[data-theme="dark"] .pipeline-step.is-needs_review {
+  border-color: #581c87;
+}
+
+[data-theme="dark"] .review-edit-row input,
+[data-theme="dark"] .field input,
+[data-theme="dark"] .field textarea {
+  background: #111317;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .upload-zone.is-dragover,
+[data-theme="dark"] .upload-zone:focus-within,
+[data-theme="dark"] .upload-zone:hover {
+  background: #1e293b;
+}
+
+[data-theme="dark"] .btn--secondary {
+  background: #111317;
+}
+
+[data-theme="dark"] .btn--secondary:hover:not(:disabled) {
+  background: #22262d;
+}
+
+[data-theme="dark"] .btn--danger:hover:not(:disabled) {
+  background: #450a0a;
+  border-color: #7f1d1d;
+}
+
+[data-theme="dark"] select {
+  background: #111317;
+  color: var(--text-primary);
+  border-color: var(--border);
+}
