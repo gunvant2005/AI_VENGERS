@@ -9,14 +9,26 @@
   font-size: var(--text-sm);
   font-weight: 500;
   border: 1px solid transparent;
-  transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease),
-    color var(--duration) var(--ease);
+  transition: transform 0.2s var(--ease-bounce),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.25s ease;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
 }
 
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.97) !important;
 }
 
 .btn--primary {
@@ -26,6 +38,8 @@
 
 .btn--primary:hover:not(:disabled) {
   background: var(--accent-hover);
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: var(--shadow-glow);
 }
 
 .btn--secondary {
@@ -36,7 +50,10 @@
 
 .btn--secondary:hover:not(:disabled) {
   background: var(--surface-hover);
-  border-color: var(--border-strong);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .btn--ghost {
@@ -47,11 +64,18 @@
 .btn--ghost:hover:not(:disabled) {
   background: var(--surface-hover);
   color: var(--text-primary);
+  transform: translateY(-1px);
 }
 
 .btn--success {
   background: var(--success);
   color: var(--text-inverse);
+}
+
+.btn--success:hover:not(:disabled) {
+  background: #166534;
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: var(--shadow-glow-success);
 }
 
 .btn--danger {
@@ -62,11 +86,13 @@
 
 .btn--danger:hover:not(:disabled) {
   background: var(--error-bg);
-  border-color: #fecaca;
+  border-color: var(--error);
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: var(--shadow-glow-error);
 }
 
 .btn--sm {
-  padding: 0.3rem 0.6rem;
+  padding: 0.35rem 0.65rem;
   font-size: var(--text-xs);
 }
 
@@ -274,7 +300,7 @@
 }
 
 .demo-chip {
-  padding: 2px 8px;
+  padding: 3px 10px;
   font-size: var(--text-xs);
   font-family: var(--font-mono);
   background: var(--surface-muted);
@@ -282,13 +308,24 @@
   border-radius: 999px;
   color: var(--text-muted);
   cursor: pointer;
-  transition: all var(--duration) var(--ease);
+  transition: transform 0.2s var(--ease-bounce),
+              border-color 0.2s ease,
+              background-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.2s ease;
+  user-select: none;
 }
 
-.demo-chip:hover {
+.demo-chip:hover:not(:disabled) {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-subtle);
+  transform: translateY(-1.5px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.demo-chip:active:not(:disabled) {
+  transform: translateY(0) scale(0.96);
 }
 
 .demo-chip:disabled {
@@ -302,6 +339,15 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease-out),
+              box-shadow 0.3s var(--ease-out),
+              border-color 0.3s var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-strong);
 }
 
 .card__body {
@@ -728,23 +774,32 @@
 
 .product-table tbody tr {
   cursor: pointer;
-  transition: background var(--duration) var(--ease);
+  border-left: 3px solid transparent;
+  transition: background-color 0.2s var(--ease),
+              border-color 0.2s var(--ease),
+              transform 0.2s var(--ease-out),
+              box-shadow 0.2s var(--ease);
 }
 
 .product-table tbody tr:hover {
-  background: var(--surface-hover);
+  background-color: var(--surface-hover);
+  border-left-color: var(--accent);
+  transform: translateX(3px);
 }
 
 .product-table tbody tr.is-selected {
-  background: var(--accent-subtle);
+  background-color: var(--accent-subtle);
+  border-left-color: var(--accent);
 }
 
 .product-table tbody tr.is-review {
-  background: #fffbeb;
+  background-color: #fffbeb;
+  border-left-color: var(--warning);
 }
 
 .product-table tbody tr.is-review.is-selected {
-  background: #fef3c7;
+  background-color: #fef3c7;
+  border-left-color: var(--warning);
 }
 
 .field-name {

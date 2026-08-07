@@ -19,6 +19,13 @@
   place-items: center;
   margin-bottom: var(--space-4);
   color: var(--text-muted);
+  transition: transform 0.3s var(--ease-bounce), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.empty-state:hover .empty-state__icon {
+  transform: translateY(-4px) rotate(-3deg);
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .empty-state__title {
