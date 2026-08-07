@@ -51,10 +51,15 @@ export function Header(state) {
         </div>
       </div>
       <div class="app-header__meta">
+        ${
+          state.productRecord
+            ? `<button type="button" class="btn btn--primary btn--sm" data-action="export-json" title="Download Product Record JSON (Ctrl+S)">⬇ Export JSON</button>`
+            : ''
+        }
         <span class="badge badge--success" style="font-size:11px" title="Auto-saved state snapshot enabled">✓ Auto-saved</span>
         
         <div class="role-selector" title="Switch User Role to test RBAC permissions">
-          <select id="role-select" aria-label="Select User Role" class="input--sm" style="font-size:12px;padding:3px 8px;border-radius:4px;border:1px solid var(--border);background:var(--surface-input);color:var(--text-primary)">
+          <select id="role-select" aria-label="Select User Role" class="custom-select select-animated select--sm">
             <option value="admin" ${role === 'admin' ? 'selected' : ''}>Role: Admin</option>
             <option value="reviewer" ${role === 'reviewer' ? 'selected' : ''}>Role: Reviewer</option>
             <option value="viewer" ${role === 'viewer' ? 'selected' : ''}>Role: Viewer</option>

@@ -503,6 +503,16 @@ function bindGlobalEvents() {
   });
 
   document.addEventListener('change', (e) => {
+    if (e.target.id === 'select-preset-sku') {
+      const sku = e.target.value;
+      if (sku) {
+        updateInput({ sku });
+        pushToast(`Loaded product template: ${sku}`, 'success');
+        trackEvent('Input', 'select_preset_sku', sku);
+      }
+      return;
+    }
+
     if (e.target.id === 'role-select') {
       const newRole = e.target.value;
       setRole(newRole);

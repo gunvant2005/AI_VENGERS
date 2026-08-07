@@ -118,7 +118,12 @@ export function ProductOutput(state) {
         <div style="display:flex;align-items:center;gap:var(--space-2)">
           ${
             state.productRecord
-              ? `<div class="search-field" role="search" style="min-width:200px">
+              ? `<div class="btn-group" style="margin-right:var(--space-2)">
+                  <button type="button" class="btn btn--secondary btn--sm" data-action="export-json" title="Download Full JSON">⬇ JSON</button>
+                  <button type="button" class="btn btn--secondary btn--sm" data-action="export-csv" title="Download CSV">⬇ CSV</button>
+                  <button type="button" class="btn btn--secondary btn--sm" data-action="export-pim" title="Download PIM JSON">⬇ PIM</button>
+                </div>
+                <div class="search-field" role="search" style="min-width:180px">
                   ${searchIcon}
                   <input
                     type="search"

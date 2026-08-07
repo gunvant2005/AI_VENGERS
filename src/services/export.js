@@ -9,8 +9,10 @@ function downloadBlob(blob, filename) {
   a.rel = 'noopener';
   document.body.appendChild(a);
   a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
+  setTimeout(() => {
+    a.remove();
+    URL.revokeObjectURL(url);
+  }, 1000);
 }
 
 function skuSlug() {

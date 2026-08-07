@@ -1097,3 +1097,118 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ==========================================================================
+   Custom Select Component & Animations
+   ========================================================================== */
+
+select,
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--surface-input);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: 8px 32px 8px 12px;
+  line-height: 1.4;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.2s ease,
+              background-color 0.25s ease;
+  position: relative;
+}
+
+/* Hover Effect */
+select:hover:not(:disabled),
+.custom-select:hover:not(:disabled) {
+  border-color: var(--accent);
+  background-color: var(--surface);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Active & Click Animation */
+select:active:not(:disabled),
+.custom-select:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Focus Glow & Keyframe Pulse Animation */
+select:focus,
+.custom-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-alpha, rgba(37, 99, 235, 0.25)), 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: selectFocusGlow 1.5s infinite alternate ease-in-out;
+}
+
+/* Small sizing variant */
+select.select--sm,
+.custom-select.select--sm {
+  padding: 4px 28px 4px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  background-position: right 8px center;
+  background-size: 12px;
+}
+
+/* Animated Glow Class */
+.select-animated {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.select-animated:hover:not(:disabled) {
+  animation: selectShimmer 2s infinite linear;
+}
+
+/* Option styling */
+select option {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  padding: 10px;
+  font-size: var(--text-sm);
+}
+
+select option:checked {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+/* Dark mode custom chevron override */
+[data-theme="dark"] select,
+[data-theme="dark"] .custom-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* Keyframes for select animations */
+@keyframes selectFocusGlow {
+  0% {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2), 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  100% {
+    box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.4), 0 4px 12px rgba(37, 99, 235, 0.15);
+  }
+}
+
+@keyframes selectShimmer {
+  0% {
+    border-color: var(--accent);
+  }
+  50% {
+    border-color: var(--accent-light, #60a5fa);
+  }
+  100% {
+    border-color: var(--accent);
+  }
+}
+

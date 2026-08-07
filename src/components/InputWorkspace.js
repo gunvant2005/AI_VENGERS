@@ -40,6 +40,12 @@ export function InputWorkspace(state) {
             />
             <span id="sku-hint" class="hint">Demo SKUs: HEX-M12-50 · BB-6205-2RS · IV-GATE-150</span>
             <div class="demo-hints" role="group" aria-label="Load demo product">
+              <select id="select-preset-sku" class="custom-select select-animated select--sm" aria-label="Select product template" ${busy ? 'disabled' : ''}>
+                <option value="" disabled selected>⚡ Select Demo Product Preset…</option>
+                <option value="HEX-M12-50">Hex Bolt M12×50 (Fasteners)</option>
+                <option value="BB-6205-2RS">Ball Bearing 6205-2RS (Bearings)</option>
+                <option value="IV-GATE-150">Industrial Gate Valve 150 (Valves)</option>
+              </select>
               <button type="button" class="demo-chip" data-action="demo-sku" data-sku="HEX-M12-50" ${busy ? 'disabled' : ''}>HEX-M12-50</button>
               <button type="button" class="demo-chip" data-action="demo-sku" data-sku="BB-6205-2RS" ${busy ? 'disabled' : ''}>BB-6205-2RS</button>
               <button type="button" class="demo-chip" data-action="demo-sku" data-sku="IV-GATE-150" ${busy ? 'disabled' : ''}>IV-GATE-150</button>
