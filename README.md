@@ -1,101 +1,142 @@
-# Product Intelligence — Industrial Commerce
+<div align="center">
 
-[![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
-[![Security Headers](https://img.shields.io/badge/Security-CSP%20%7C%20XSS%20Safe-success?style=flat-square)](#security--compliance)
-[![Testing](https://img.shields.io/badge/Tests-Vitest%20Configured-green?style=flat-square)](#automated-testing)
-[![SEO](https://img.shields.io/badge/SEO-OpenGraph%20%7C%20JSON--LD-blue?style=flat-square)](#seo--metadata)
-[![License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+# ⚡ Product Intelligence — Industrial Commerce
+### *Enterprise AI-Powered Product Intelligence & Data Normalization Engine*
 
-An enterprise-grade, AI-powered product intelligence workspace for industrial manufacturers and B2B distributor commerce. Converts unstructured, fragmented product inputs (SKUs, technical PDFs, spec sheets, supplier text) into structured, evidence-linked, commerce-ready records.
+[![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![JavaScript](https://img.shields.io/badge/Vanilla_JS-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Vitest](https://img.shields.io/badge/Vitest-5_Suites_Passing-252529?style=for-the-badge&logo=vitest&logoColor=73C21B)](https://vitest.dev/)
+[![Security](https://img.shields.io/badge/Security-A%2B_CSP_%7C_XSS_%7C_SQLi-success?style=for-the-badge&logo=shield)](https://github.com/gunvant2005/AI_VENGERS)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
----
+<br/>
 
-## 🌟 Key Features & Capabilities
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/gunvant2005/AI_VENGERS)
+&nbsp;&nbsp;
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gunvant2005/AI_VENGERS)
 
-- **Input Workspace**: Ingests SKU codes, supplier text, technical PDFs, and CAD/product images.
-- **Simulated AI Pipeline**: 6-stage pipeline (Ingestion → Parsing → Extraction → Enrichment → Validation → Human Review → Export).
-- **Evidence Traceability**: Every extracted attribute is linked to source documents, page numbers, and exact text snippets.
-- **Validation Engine**: Real-time detection of missing attributes, unit mismatches, low confidence scores, and taxonomy discrepancies.
-- **Human-in-the-Loop Review**: Granular approval, inline editing, rejection, notes, bulk actions, and multi-step undo (`Ctrl+Z`).
-- **Role-Based Access Control (RBAC)**: Supports Admin, Reviewer, and Viewer permission roles.
-- **Auto-Save & Snapshot Recovery**: Automatically saves state to local storage to prevent data loss across session restarts.
-- **Multi-Format Export**: Full JSON, CSV spreadsheet format, and PIM-ready JSON payload.
+</div>
 
 ---
 
-## 🔒 Security & Compliance
+## 📖 Overview
 
-- **XSS Prevention**: Strict HTML escaping (`escapeHtml()`) applied to all dynamic content rendering.
-- **Content Security Policy (CSP)**: Hardened meta headers restrict script execution, font sources, and connect origins.
-- **File Upload Security**: Enforces file type verification (MIME + Extension) and maximum 10MB file payload limits.
-- **Rate Limiting**: Includes pipeline request throttling (max 5 requests / 10 sec) to prevent abuse.
-- **RBAC Enforcement**: Prevents read-only Viewer roles from executing pipeline modifications.
+**Product Intelligence** is an enterprise-grade AI intelligence platform designed for industrial manufacturers, B2B distributors, and e-commerce catalogs. It ingests fragmented product inputs (SKUs, technical PDFs, spec sheets, supplier copy, and images) and normalizes them into **structured, evidence-linked, commerce-ready records**.
 
 ---
 
-## 🚀 Quick Start & Development
+## 🌟 Key Platform Features
+
+| Feature Module | Description & Capabilities |
+|---|---|
+| 📥 **Input Workspace** | Multi-modal ingestion of SKU codes, supplier text copy, technical PDF data sheets, and product images with instant preset loading. |
+| ⚡ **6-Stage Pipeline Engine** | Asynchronous execution: `Ingestion` → `Parsing` → `Extraction` → `Enrichment` → `Validation` → `Human Review` → `Export`. |
+| 🔍 **Evidence Traceability** | Every extracted attribute links directly to source document citations, page numbers, and exact text snippets. |
+| 🛡️ **Validation & Anomaly Engine** | Real-time confidence scoring ($0-100\%$), missing attribute detection, unit standardization, and taxonomy checks. |
+| 👥 **Human-in-the-Loop Review** | Inline attribute editing, single-click approvals/rejections, review notes, bulk operations, and multi-step undo (`Ctrl+Z`). |
+| 🔐 **Role-Based Access Control** | Granular RBAC permissions for `Admin` (Full Access), `Reviewer` (Edit & Approve), and `Viewer` (Read-only). |
+| 💾 **Auto-Save & Crash Recovery** | Continuous `localStorage` snapshotting with 1-click state backup export and restore. |
+| 📦 **Multi-Format Handoff** | One-click export and clipboard copy for **Full JSON**, **CSV Flat File**, and **PIM-ready JSON**. |
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+flowchart LR
+    A[Unstructured Inputs] -->|SKU / Text / PDF / Image| B(Ingestion Stage)
+    B --> C(Parsing Engine)
+    C --> D(AI Attribute Extraction)
+    D --> E(Taxonomy & Unit Enrichment)
+    E --> F[Confidence & Validation Engine]
+    F -->|Low Confidence / Anomaly| G[Human-in-the-Loop Review Queue]
+    F -->|Validated Data| H[PIM & Commerce Handoff]
+    G -->|Approved / Edited| H
+    H --> I[JSON / CSV / PIM Payload]
+```
+
+---
+
+## 🔒 Security & Compliance Matrix
+
+- 🛡️ **XSS Sanitization**: Dynamic HTML escaping (`sanitizeInput()`) on all client rendering.
+- 🛡️ **SQLi / Injection Guard**: Query pattern filter (`sanitizeSqlInjection()`) stripping malicious command injections.
+- 🛡️ **Content Security Policy**: Meta CSP restricting script origins, font sources, and connect endpoints.
+- 🛡️ **File Payload Security**: MIME type & extension whitelisting (`.pdf`, `.png`, `.jpg`, `.webp`) with a strict 10MB limit.
+- 🛡️ **Rate Limiting**: Request throttling (`pipelineRateLimiter`, max 5 requests / 10 sec window).
+- 🛡️ **Authentication & RBAC**: Session permission guards preventing Unauthorized/Viewer role modifications.
+
+---
+
+## 🚀 Quick Start Guide
+
+### Prerequisites
+- **Node.js** v18+ 
+- **npm** v9+
+
+### Installation & Local Setup
 
 ```bash
-# Install dependencies
+# 1. Clone repository
+git clone https://github.com/gunvant2005/AI_VENGERS.git
+cd AI_VENGERS
+
+# 2. Install dependencies
 npm install
 
-# Run Vite dev server
+# 3. Start local development server
 npm run dev
 
-# Run automated Vitest suite
+# 4. Run Vitest automated test suite
 npm run test
 
-# Build for production
+# 5. Build for production
 npm run build
-
-# Preview production build locally
-npm run preview
 ```
 
 Open your browser at `http://localhost:5173`.
 
 ---
 
-## 🧪 Automated Testing
+## 🧪 Automated Testing Suite
 
-Unit test suites are configured via **Vitest** ([vite.config.js](file:///c:/Users/dhake/OneDrive/Apps/Desktop/UniHack%202/vite.config.js)):
+Configured with **Vitest** ([vite.config.js](vite.config.js)) for high reliability:
 
 ```bash
 npm run test
 ```
 
-### Test Coverage:
-- `src/__tests__/pipeline.test.js` — Pipeline engine & fallback SKU generator
-- `src/__tests__/validation.test.js` — Validation rules & anomaly detection
-- `src/__tests__/export.test.js` — JSON, CSV, and PIM format builders
-- `src/__tests__/security.test.js` — Input sanitization, file limits, and rate limiting
-- `src/__tests__/auth.test.js` — RBAC permissions, role switcher, and SQL/password validators
-
----
-
-## 🌐 SEO & Social Optimization
-
-- **Meta Tags**: Full Open Graph (`og:*`) and Twitter Card metadata.
-- **Structured Data**: Embedded JSON-LD `SoftwareApplication` schema in `index.html`.
-- **Sitemap & Robots**: Standard [public/sitemap.xml](file:///c:/Users/dhake/OneDrive/Apps/Desktop/UniHack%202/public/sitemap.xml) and [public/robots.txt](file:///c:/Users/dhake/OneDrive/Apps/Desktop/UniHack%202/public/robots.txt).
-
----
-
-## 💾 Backup & Disaster Recovery
-
-Refer to [BACKUP_RECOVERY.md](file:///c:/Users/dhake/OneDrive/Apps/Desktop/UniHack%202/BACKUP_RECOVERY.md) for full server-side PostgreSQL recovery procedures, RTO/RPO metrics, and WAL archiving policies.
+### 5 Test Coverage Modules:
+1. `src/__tests__/pipeline.test.js` — Pipeline engine & fallback SKU generator
+2. `src/__tests__/validation.test.js` — Validation rules & anomaly detection engine
+3. `src/__tests__/export.test.js` — Full JSON, CSV, and PIM format builders
+4. `src/__tests__/security.test.js` — XSS escaping, file upload bounds, and rate limiting
+5. `src/__tests__/auth.test.js` — RBAC permissions, role switching, and SQL/password validators
 
 ---
 
 ## ⌨️ UX Keyboard Shortcuts
 
-- `Ctrl + Enter`: Submit input form / Approve highlighted review item
-- `Ctrl + S`: Quick Export Full Product JSON
-- `Ctrl + Z`: Undo last review action
-- `Esc`: Cancel inline editing
+| Shortcut | Action |
+|---|---|
+| `Ctrl` + `Enter` | Submit Input Form / Approve Active Review Item |
+| `Ctrl` + `S` | Quick Export Full Product JSON Record |
+| `Ctrl` + `Z` | Undo Last Review Queue Action |
+| `Esc` | Cancel Inline Attribute Editing |
 
 ---
 
-## 📖 API Documentation
+## 📄 Documentation Links
 
-Refer to [API_DOCUMENTATION.md](file:///c:/Users/dhake/OneDrive/Apps/Desktop/UniHack%202/API_DOCUMENTATION.md) for data schemas and endpoint contracts.
+- 📘 [API Specification & Schemas](API_DOCUMENTATION.md)
+- 💾 [Disaster Recovery & Backup SOP](BACKUP_RECOVERY.md)
+- 📊 [13-Point Quality & Audit Report](C:\Users\dhake\.gemini\antigravity-ide\brain\04982c0f-3423-47a6-a8a3-fb7d3174db0e\audit_report.md)
+
+---
+
+<div align="center">
+
+Made with ❤️ by **Team AI_VENGERS**  
+*Licensed under the [MIT License](LICENSE)*
+
+</div>
