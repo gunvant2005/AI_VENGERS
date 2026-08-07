@@ -48,6 +48,19 @@ import { loadStateSnapshot } from './services/storage.js';
 
 const app = document.getElementById('app');
 
+/** Global Error Boundary Handler */
+window.addEventListener('error', (event) => {
+  console.error('Unhandled runtime error:', event.error || event.message);
+  pushToast('An unexpected error occurred. Workspace state remains safe.', 'error');
+  trackEvent('Error', 'runtime_error', event.message);
+});
+
+window.addEventListener('unhandledrejection', (event) => {
+  console.error('Unhandled promise rejection:', event.reason);
+  pushToast('Async task failure handled gracefully.', 'warning');
+  trackEvent('Error', 'promise_rejection', String(event.reason));
+});
+
 /** Preserve focus / scroll across re-renders where possible */
 let pendingFocusSelector = null;
 let reviewNotesDraft = {};

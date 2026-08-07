@@ -69,6 +69,7 @@ npm run test
 - `src/__tests__/validation.test.js` — Validation rules & anomaly detection
 - `src/__tests__/export.test.js` — JSON, CSV, and PIM format builders
 - `src/__tests__/security.test.js` — Input sanitization, file limits, and rate limiting
+- `src/__tests__/auth.test.js` — RBAC permissions, role switcher, and SQL/password validators
 
 ---
 

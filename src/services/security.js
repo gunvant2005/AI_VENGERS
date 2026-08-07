@@ -82,3 +82,34 @@ class RateLimiter {
 }
 
 export const pipelineRateLimiter = new RateLimiter(5, 10000);
+
+/** Sanitize input against SQL injection and command payload injection patterns */
+export function sanitizeSqlInjection(str) {
+  if (typeof str !== 'string') return str;
+  return str
+    .replace(/(\b(SELECT|INSERT|UPDATE|DELETE|DROP|ALTER|EXEC|UNION|CREATE|WHERE)\b)/gi, '')
+    .replace(/['";\-]/g, '');
+}
+
+/** Password complexity check utility for user authentication security */
+export function validatePasswordStrength(password) {
+  if (!password || typeof password !== 'string') {
+    return { valid: false, message: 'Password is required' };
+  }
+  if (password.length < 8) {
+    return { valid: false, message: 'Password must be at least 8 characters long' };
+  }
+  const hasUpper = /[A-Z]/.test(password);
+  const hasLower = /[a-z]/.test(password);
+  const hasDigit = /\d/.test(password);
+  const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+  if (!hasUpper || !hasLower || !hasDigit || !hasSpecial) {
+    return {
+      valid: false,
+      message: 'Password must contain uppercase, lowercase, number, and special character',
+    };
+  }
+  return { valid: true, message: 'Strong password' };
+}
+
